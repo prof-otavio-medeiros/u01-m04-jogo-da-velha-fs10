@@ -1,6 +1,21 @@
 let gammer = "X";
 let hasWinner = false;
 let draw = false;
+let isDisbaled = false;
+
+function disableGammerSelection() {
+  let elements = document.getElementById("tabuleiro").children;
+  for (let index = 0; index < elements.length; index++) {
+    if (elements[index].innerText.length !== 0) {
+      document.querySelector("select").disabled = true;
+      isDisbaled = true;
+    }
+  }
+}
+
+function setGammer(currentGammer) {
+  gammer = currentGammer.value;
+}
 
 function checkDraw() {
   let elements = document.getElementById("tabuleiro").children;
@@ -101,6 +116,9 @@ function checkWinner() {
 function mark(element) {
   if (element.innerText.length === 0 && !hasWinner) {
     element.innerText = gammer;
+    if (!isDisbaled) {
+      disableGammerSelection();
+    }
     hasWinner = checkWinner();
     if (!hasWinner) {
       draw = checkDraw();

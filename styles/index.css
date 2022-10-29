@@ -6,6 +6,15 @@ h1 {
   text-align: center;
 }
 
+input {
+  margin-top: 10px;
+}
+
+.centralized {
+  display: flex;
+  justify-content: center;
+}
+
 #tabuleiro {
   background-color: brown;
   width: 240px;
